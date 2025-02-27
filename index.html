@@ -7,8 +7,8 @@
     <title>ALSURO</title>
     <link rel="preload" href="assets/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/images/resize/desktop.webp" as="image" media="(min-width: 992px)">
-    <link rel="preload" href="assets/images/resize/mobile.webp" as="image" media="(max-width: 991px)">
+    <link rel="preload" href="assets/video/main_video.webm" as="video" media="(min-width: 992px)">
+    <link rel="preload" href="assets/video/main_video_mobile.webm" as="video" media="(max-width: 991px)">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -44,6 +44,11 @@
 
     <!-- Hero Section -->
     <section class="hero" id="main-content">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="assets/video/main_video.webm" media="(min-width: 992px)">
+            <source src="assets/video/main_video_mobile.webm" media="(max-width: 991px)">
+            Ваш браузер не поддерживает видео
+        </video>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
