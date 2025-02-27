@@ -1,0 +1,267 @@
+/* Large desktops (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1340px;
+    }
+    
+    .hero h1 {
+        font-size: 52px;
+    }
+}
+
+/* Desktops (1200px to 1400px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Large tablets (992px to 1200px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .main-menu li {
+        margin-left: 20px;
+    }
+    
+    /* Бургер-меню для большого планшета при нехватке места */
+    .menu-overflow .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .menu-overflow .main-menu {
+        display: none;
+    }
+    
+    .menu-overflow .main-menu.active {
+        display: block;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-gray);
+        z-index: 999;
+    }
+    
+    .menu-overflow .main-menu.active ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+    
+    .menu-overflow .main-menu.active li {
+        margin: 15px 0;
+    }
+}
+
+/* Tablets (768px to 992px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .cta-text {
+        font-size: 20px;
+    }
+    
+    /* Всегда показываем бургер-меню на планшетах */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    .main-menu {
+        display: none;
+    }
+    
+    .main-menu.active {
+        display: block;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-gray);
+        z-index: 999;
+    }
+    
+    .main-menu.active ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+    
+    .main-menu.active li {
+        margin: 15px 0;
+    }
+    
+    .main-menu.active a {
+        font-size: 18px;
+    }
+}
+
+/* Large mobile (576px to 768px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .header .container {
+        position: relative;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+    
+    /* Всегда показываем бургер-меню на мобильных */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    .main-menu {
+        display: none;
+    }
+    
+    .main-menu.active {
+        display: block;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-gray);
+        z-index: 999;
+    }
+    
+    .main-menu.active ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+    
+    .main-menu.active li {
+        margin: 15px 0;
+    }
+    
+    .main-menu.active a {
+        font-size: 18px;
+    }
+    
+    .hero h1 {
+        font-size: 30px;
+    }
+    
+    .cta-text {
+        font-size: 18px;
+    }
+    
+    /* Центрируем элементы футера */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links {
+        margin-top: 15px;
+    }
+}
+
+/* Mobile (up to 576px) */
+@media (max-width: 575px) {
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .header .container {
+        position: relative;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+    
+    /* Всегда показываем бургер-меню на мобильных */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    .main-menu {
+        display: none;
+    }
+    
+    .main-menu.active {
+        display: block;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-gray);
+        z-index: 999;
+    }
+    
+    .main-menu.active ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+    
+    .main-menu.active li {
+        margin: 15px 0;
+    }
+    
+    .main-menu.active a {
+        font-size: 18px;
+    }
+    
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .cta-text {
+        font-size: 16px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    /* Центрируем элементы футера */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links {
+        margin-top: 15px;
+    }
+    
+    .footer-contact-item {
+        margin-bottom: 8px;
+    }
+    
+    .footer-contact a {
+        font-size: 11px;
+    }
+}

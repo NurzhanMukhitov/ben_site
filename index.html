@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ALSURO - Engineering reliability, delivering innovation">
+    <title>ALSURO</title>
+    <link rel="preload" href="assets/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/main.jpg" as="image">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="ALSURO home">
+                <span class="logo-text">ALSURO</span>
+            </a>
+            <nav class="main-menu" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="design.html">DESIGN & ENGINEERING</a></li>
+                    <li><a href="trade.html">INTERNATIONAL TRADE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span>ENGINEERING RELIABILITY</span>
+                    <span>DELIVERING INNOVATION</span>
+                </h1>
+                <div class="cta-text">Let's Build the Future Together</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span class="icon location-icon" aria-hidden="true">&#x1F4CD;</span>
+                        <a href="https://g.co/kgs/H4mGCcp" target="_blank" rel="noopener" aria-label="Our address: 08007, España, Barcelona, Carrer d'Aragó, 264, 5-3">08007, España, Barcelona, Carrer d'Aragó, 264, 5-3</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon phone-icon" aria-hidden="true">&#x1F4DE;</span>
+                        <a href="tel:+34936949999" class="phone" aria-label="Call us at: +34 936 949 999">+34 936 949 999</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="icon email-icon" aria-hidden="true">&#x2709;</span>
+                        <a href="mailto:info@alsuro.com" class="email" aria-label="Email us at: info@alsuro.com">info@alsuro.com</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" aria-label="Cookies and Privacy Policy">Cookies & Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ALSURO - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Установка текущего года в футере
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Элементы для манипуляций
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainMenu = document.querySelector('.main-menu');
+        const header = document.querySelector('.header');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        // Функция для закрытия меню
+        function closeMenu() {
+            if (mainMenu.classList.contains('active')) {
+                mainMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        // Переключение мобильного меню
+        if (mobileMenuToggle && mainMenu && menuOverlay) {
+            mobileMenuToggle.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !expanded);
+                mainMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Закрываем меню при изменении размера окна
+            window.addEventListener('resize', function() {
+                closeMenu();
+                checkMenuOverflow();
+            });
+            
+            // Закрываем меню по нажатию на оверлей
+            menuOverlay.addEventListener('click', closeMenu);
+        }
+
+        // Функция для проверки переполнения меню
+        function checkMenuOverflow() {
+            // На мобильных и планшетах всегда показываем бургер-меню
+            if (window.innerWidth < 992) return;
+            
+            const container = document.querySelector('.header .container');
+            const logo = document.querySelector('.logo');
+            const menu = document.querySelector('.main-menu');
+            const menuItems = document.querySelectorAll('.main-menu li');
+            
+            if (!container || !menu || !menuItems.length || !logo) return;
+            
+            // Получаем доступную ширину для меню
+            const availableWidth = container.offsetWidth - logo.offsetWidth - 70; // Увеличиваем запас
+            
+            // Считаем общую ширину всех пунктов меню
+            let totalMenuWidth = 0;
+            menuItems.forEach(item => {
+                totalMenuWidth += item.offsetWidth;
+            });
+            
+            // Если меню не помещается, показываем бургер
+            if (totalMenuWidth > availableWidth) {
+                header.classList.add('menu-overflow');
+            } else {
+                header.classList.remove('menu-overflow');
+            }
+        }
+        
+        // Проверяем при загрузке и изменении размера окна
+        window.addEventListener('load', checkMenuOverflow);
+        window.addEventListener('resize', checkMenuOverflow);
+    </script>
+</body>
+</html>
