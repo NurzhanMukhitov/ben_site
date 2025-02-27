@@ -7,12 +7,22 @@
     .hero h1 {
         font-size: 52px;
     }
+    
+    /* Desktop image for large screens */
+    .hero {
+        background-image: url('../images/resize/desktop.webp');
+    }
 }
 
 /* Desktops (1200px to 1400px) */
 @media (min-width: 1200px) and (max-width: 1399px) {
     .container {
         max-width: 1140px;
+    }
+    
+    /* Desktop image for medium-large screens */
+    .hero {
+        background-image: url('../images/resize/desktop.webp');
     }
 }
 
@@ -28,6 +38,11 @@
     
     .main-menu li {
         margin-left: 20px;
+    }
+    
+    /* Desktop image for tablet-desktop screens */
+    .hero {
+        background-image: url('../images/resize/desktop.webp');
     }
     
     /* Бургер-меню для большого планшета при нехватке места */
@@ -72,6 +87,11 @@
     
     .cta-text {
         font-size: 20px;
+    }
+    
+    /* Mobile image for tablets */
+    .hero {
+        background-image: url('../images/resize/mobile.webp');
     }
     
     /* Всегда показываем бургер-меню на планшетах */
@@ -120,6 +140,11 @@
     
     .logo-text {
         font-size: 20px;
+    }
+    
+    /* Mobile image for large mobile devices */
+    .hero {
+        background-image: url('../images/resize/mobile.webp');
     }
     
     /* Всегда показываем бургер-меню на мобильных */
@@ -193,6 +218,11 @@
     
     .logo-text {
         font-size: 20px;
+    }
+    
+    /* Mobile image for small devices */
+    .hero {
+        background-image: url('../images/resize/mobile.webp');
     }
     
     /* Всегда показываем бургер-меню на мобильных */
