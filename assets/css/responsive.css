@@ -7,22 +7,12 @@
     .hero h1 {
         font-size: 52px;
     }
-    
-    /* Desktop image for large screens */
-    .hero {
-        background-image: url('../images/resize/desktop.webp');
-    }
 }
 
 /* Desktops (1200px to 1400px) */
 @media (min-width: 1200px) and (max-width: 1399px) {
     .container {
         max-width: 1140px;
-    }
-    
-    /* Desktop image for medium-large screens */
-    .hero {
-        background-image: url('../images/resize/desktop.webp');
     }
 }
 
@@ -38,11 +28,6 @@
     
     .main-menu li {
         margin-left: 20px;
-    }
-    
-    /* Desktop image for tablet-desktop screens */
-    .hero {
-        background-image: url('../images/resize/desktop.webp');
     }
     
     /* Бургер-меню для большого планшета при нехватке места */
@@ -89,9 +74,11 @@
         font-size: 20px;
     }
     
-    /* Mobile image for tablets */
-    .hero {
-        background-image: url('../images/resize/mobile.webp');
+    /* Для лучшей видимости */
+    .hero h1, .cta-text {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 10px;
     }
     
     /* Всегда показываем бургер-меню на планшетах */
@@ -126,6 +113,11 @@
     .main-menu.active a {
         font-size: 18px;
     }
+    
+    /* Корректировка видео для этого диапазона */
+    .hero-video {
+        transform: scale(1.1);
+    }
 }
 
 /* Large mobile (576px to 768px) */
@@ -142,9 +134,22 @@
         font-size: 20px;
     }
     
-    /* Mobile image for large mobile devices */
+    /* Если видео не загружается или не воспроизводится, показываем фоновое изображение */
     .hero {
         background-image: url('../images/resize/mobile.webp');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .no-webp .hero {
+        background-image: url('../images/resize/mobile.jpg');
+    }
+    
+    /* Улучшаем видимость текста */
+    .hero h1, .cta-text {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        padding: 10px;
     }
     
     /* Всегда показываем бургер-меню на мобильных */
@@ -220,9 +225,23 @@
         font-size: 20px;
     }
     
-    /* Mobile image for small devices */
+    /* Если видео не загружается или не воспроизводится, показываем фоновое изображение */
     .hero {
         background-image: url('../images/resize/mobile.webp');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .no-webp .hero {
+        background-image: url('../images/resize/mobile.jpg');
+    }
+    
+    /* Улучшаем видимость текста */
+    .hero h1, .cta-text {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        padding: 10px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
     }
     
     /* Всегда показываем бургер-меню на мобильных */
