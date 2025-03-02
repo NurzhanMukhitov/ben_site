@@ -118,6 +118,10 @@
     .hero-video {
         transform: scale(1.1);
     }
+
+    .design-engineering .hero.design-hero {
+        height: 45vh !important;
+    }
 }
 
 /* Large mobile (576px to 768px) */
@@ -134,11 +138,20 @@
         font-size: 20px;
     }
     
+    .design-engineering {
+        --hero-height: 45vh;
+    }
+    
     /* Если видео не загружается или не воспроизводится, показываем фоновое изображение */
     .hero {
+        height: 45vh !important;
         background-image: url('../images/resize/mobile.webp');
         background-size: cover;
         background-position: center;
+    }
+
+    .design-engineering .hero.design-hero {
+        height: 45vh !important;
     }
     
     .no-webp .hero {
@@ -208,6 +221,14 @@
     .footer-links {
         margin-top: 15px;
     }
+
+    .design-engineering {
+        --hero-height: 45vh;
+    }
+    
+    .design-engineering .hero.design-hero {
+        height: 45vh !important;
+    }
 }
 
 /* Mobile (up to 576px) */
@@ -225,11 +246,20 @@
         font-size: 20px;
     }
     
+    .design-engineering {
+        --hero-height: 40vh;
+    }
+    
     /* Если видео не загружается или не воспроизводится, показываем фоновое изображение */
     .hero {
+        height: 40vh !important;
         background-image: url('../images/resize/mobile.webp');
         background-size: cover;
         background-position: center;
+    }
+
+    .design-engineering .hero.design-hero {
+        height: 40vh !important;
     }
     
     .no-webp .hero {
@@ -312,5 +342,13 @@
     
     .footer-contact a {
         font-size: 11px;
+    }
+
+    .design-engineering {
+        --hero-height: 40vh;
+    }
+
+    .design-engineering .hero.design-hero {
+        height: 40vh !important;
     }
 }
