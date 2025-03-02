@@ -2,24 +2,27 @@
 
 .design-engineering {
     --hero-height: 65vh;
+    padding-top: 80px; /* Добавляю отступ сверху для всего основного контента */
 }
 
 @media (max-width: 991px) {
     .design-engineering {
         --hero-height: 45vh;
+        padding-top: 60px; /* Меньший отступ для планшетов */
     }
 }
 
 @media (max-width: 575px) {
     .design-engineering {
         --hero-height: 40vh;
+        padding-top: 40px; /* Еще меньший отступ для мобильных */
     }
 }
 
 /* Hero Section */
 .design-engineering .hero.design-hero {
-    background-color: #222; /* Фоновый цвет до загрузки изображения */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/design/hero-bg.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    background-image: url('../images/design/hero-bg.jpg'); /* Возвращаем фоновое изображение */
     background-size: cover;
     background-position: center;
     height: var(--hero-height) !important;
@@ -31,11 +34,16 @@
 
 .design-hero h1 {
     color: #fff;
-    font-size: 5rem;
+    font-size: 2.2rem; /* Уменьшенный размер шрифта */
     margin-bottom: 0;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Убираем подзаголовок */
+.card-subtitle {
+    display: none;
 }
 
 /* Intro Section */
@@ -79,7 +87,7 @@
 
 /* Card Grid Section */
 .card-grid-section {
-    padding: 2rem 0;
+    padding: 2rem 0 2rem; /* Уменьшаем верхний отступ, так как добавили отступ для основного контента */
     background-color: #222;
 }
 
@@ -108,7 +116,7 @@
 
 .card {
     background: #333;
-    border-radius: 0;
+    border-radius: 12px; /* Закругленные углы */
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
@@ -134,6 +142,8 @@
 .card-image {
     height: 200px;
     overflow: hidden;
+    border-top-left-radius: 12px; /* Закругленные углы для изображения */
+    border-top-right-radius: 12px; /* Закругленные углы для изображения */
 }
 
 .card-image img {
@@ -168,14 +178,7 @@
     margin-bottom: 0;
     font-weight: 700;
     text-align: center;
-}
-
-.card-subtitle {
-    color: #4a90e2;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    line-height: 1.4;
+    opacity: 1; /* Убедимся, что текст виден */
 }
 
 .card-description {
@@ -243,9 +246,5 @@
 
     .card-title {
         font-size: 1.3rem;
-    }
-
-    .card-subtitle {
-        font-size: 0.9rem;
     }
 } 

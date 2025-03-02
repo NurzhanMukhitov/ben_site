@@ -47,6 +47,7 @@
         width: 100%;
         background-color: var(--dark-gray);
         z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
     .menu-overflow .main-menu.active ul {
@@ -84,6 +85,7 @@
     /* Всегда показываем бургер-меню на планшетах */
     .mobile-menu-toggle {
         display: flex !important;
+        z-index: 1010;
     }
     
     .main-menu {
@@ -98,6 +100,7 @@
         width: 100%;
         background-color: var(--dark-gray);
         z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
     .main-menu.active ul {
@@ -168,6 +171,8 @@
     /* Всегда показываем бургер-меню на мобильных */
     .mobile-menu-toggle {
         display: flex !important;
+        z-index: 1010;
+        position: relative;
     }
     
     .main-menu {
@@ -182,6 +187,9 @@
         width: 100%;
         background-color: var(--dark-gray);
         z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
     }
     
     .main-menu.active ul {
@@ -196,6 +204,10 @@
     
     .main-menu.active a {
         font-size: 18px;
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
     }
     
     .hero h1 {
@@ -211,15 +223,20 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        margin-bottom: 5px;
     }
     
     .footer-contact {
         align-items: center;
-        margin-bottom: 15px;
+        margin-bottom: 6px;
     }
     
     .footer-links {
-        margin-top: 15px;
+        margin-top: 3px;
+    }
+    
+    .footer-contact a {
+        font-size: 11px;
     }
 
     .design-engineering {
@@ -246,27 +263,11 @@
         font-size: 20px;
     }
     
-    .design-engineering {
-        --hero-height: 40vh;
-    }
-    
-    /* Если видео не загружается или не воспроизводится, показываем фоновое изображение */
-    .hero {
-        height: 60vh !important;
-        background-image: none; /* Убираем фоновое изображение */
-    }
-    
-    /* Улучшаем видимость текста - делаем подложку более прозрачной */
-    .hero h1, .cta-text {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        padding: 8px;
-        margin-bottom: 10px;
-    }
-    
-    /* Всегда показываем бургер-меню на мобильных */
+    /* Показываем бургер-меню на мобильных */
     .mobile-menu-toggle {
         display: flex !important;
+        z-index: 1010;
+        position: relative;
     }
     
     .main-menu {
@@ -281,69 +282,75 @@
         width: 100%;
         background-color: var(--dark-gray);
         z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
     }
     
     .main-menu.active ul {
         flex-direction: column;
         align-items: center;
-        padding: 30px 0;
+        padding: 20px 0;
     }
     
     .main-menu.active li {
-        margin: 15px 0;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
     }
     
     .main-menu.active a {
         font-size: 18px;
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+    }
+    
+    .design-engineering .hero.design-hero {
+        height: 35vh !important;
     }
     
     .hero h1 {
         font-size: 28px;
     }
     
-    .cta-text {
-        font-size: 16px;
-    }
-    
-    /* Уменьшаем размер футера и делаем его более компактным */
     .footer {
-        padding: 15px 0;
+        padding: 8px 0 6px;
     }
     
     .footer-top {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 10px;
+        gap: 5px;
+        margin-bottom: 5px;
     }
     
     .footer-contact {
         align-items: center;
-        margin-bottom: 10px;
     }
     
     .footer-contact-item {
-        margin-bottom: 5px;
-        font-size: 14px;
+        margin-bottom: 3px;
     }
     
-    .footer-links {
-        margin-top: 5px;
-        font-size: 14px;
+    .footer-contact a {
+        font-size: 11px;
+    }
+    
+    .footer-links a {
+        font-size: 11px;
     }
     
     .footer-bottom {
-        margin-top: 5px;
-        font-size: 12px;
+        padding-top: 2px;
+    }
+    
+    .footer-bottom p {
+        font-size: 8px;
     }
 
     /* Уменьшаем размер иконок в футере */
     .icon {
-        font-size: 14px;
+        font-size: 12px;
         margin-right: 5px;
-    }
-    
-    .design-engineering .hero.design-hero {
-        height: 40vh !important;
     }
 }

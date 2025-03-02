@@ -257,8 +257,8 @@ a:hover {
     left: 0;
     width: 100%;
     height: calc(100% - var(--header-height));
-    background-color: var(--dark-gray);
-    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -437,100 +437,99 @@ a:hover {
     background-color: var(--dark-color);
     color: var(--light-color);
     width: 100%;
-    bottom: 0;
-    z-index: 10;
-    min-height: var(--footer-height);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 10px 0 8px;
 }
 
 .footer-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    width: 100%;
-    text-align: center;
+    margin-bottom: 6px;
 }
 
 .footer-contact {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .footer-contact-item {
+    margin-bottom: 4px;
     display: flex;
     align-items: center;
-    margin-bottom: 12px; /* Увеличенный отступ */
-    transition: transform 0.3s ease;
-}
-
-.footer-contact-item:last-child {
-    margin-bottom: 0;
-}
-
-.footer-contact-item:hover {
-    transform: translateX(5px);
-}
-
-.icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    color: var(--light-color);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
 }
 
 .footer-contact a {
     color: var(--light-color);
-    font-style: normal;
+    text-decoration: none;
     font-size: 12px;
-    margin: 0;
+    transition: color 0.3s;
 }
 
 .footer-contact a:hover {
-    color: var(--light-color);
-    text-decoration: underline;
-}
-
-.footer-links {
-    display: flex;
-    align-items: center;
-    height: 100%;
+    color: #007bff;
 }
 
 .footer-links a {
     color: var(--light-color);
+    text-decoration: none;
     font-size: 12px;
-    transition: all 0.3s ease;
-    position: relative;
+    transition: color 0.3s;
 }
 
-.footer-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--light-color);
-    transition: width 0.3s ease;
-}
-
-.footer-links a:hover::after {
-    width: 100%;
+.footer-links a:hover {
+    color: #007bff;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-bottom: 5px;
-    font-size: 7px;
     width: 100%;
+    padding-top: 3px;
+}
+
+.footer-bottom p {
+    font-size: 9px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Иконки для футера с использованием псевдоэлементов */
+.icon {
+    display: inline-block;
+    width: 14px;
+    margin-right: 6px;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.icon-location::before {
+    content: "\f3c5"; /* Font Awesome код для иконки местоположения */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-phone::before {
+    content: "\f095"; /* Font Awesome код для иконки телефона */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-email::before {
+    content: "\f0e0"; /* Font Awesome код для иконки email */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* Hero Text Styles */
+.hero h1, .cta-text, .design-hero h1 {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Design & Engineering Section */
+.design-engineering .hero.design-hero {
+    height: 40vh;
 }
 
 /* Preload критических ресурсов */
@@ -559,4 +558,9 @@ body::after {
 :focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+/* Стили для состояния открытого меню */
+body.menu-open {
+    overflow: hidden;
 }

@@ -400,9 +400,9 @@ module.exports = [
         id: 13,
         title: 'Municipal Drinking Water',
         subtitle: 'Delivering Safe and Reliable Drinking Water for Communities',
-        image: 'assets/images/design/thumbnails/municipal_drinking.jpg',
-        imageLarge: 'assets/images/design/large/municipal_drinking.jpg',
-        imageHero: 'assets/images/design/hero/municipal_drinking.jpg',
+        image: 'assets/images/design/thumbnails/municipal_drinking_water.jpg',
+        imageLarge: 'assets/images/design/large/municipal_drinking_water.jpg',
+        imageHero: 'assets/images/design/hero/municipal_drinking_water.jpg',
         description: 'Advanced solutions for municipal water treatment.',
         content: {
             overview: 'Water utilities and municipalities face numerous challenges in providing clean and safe drinking water. Aging infrastructure, emerging contaminants, and regulatory requirements demand innovative solutions to ensure public health and sustainability. With a legacy of expertise in water treatment, Alsuro supports municipalities in delivering high-quality drinking water.',

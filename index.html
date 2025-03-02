@@ -7,6 +7,7 @@
     <title>ALSURO</title>
     <link rel="preload" href="assets/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <script>
@@ -35,11 +36,11 @@
             <a href="index.html" class="logo" aria-label="ALSURO home">
                 <span class="logo-text">ALSURO</span>
             </a>
-            <nav class="main-menu" role="navigation" aria-label="Main navigation">
+            <nav class="main-menu" role="navigation" aria-label="Main navigation" id="main-menu">
                 <ul>
                     <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
                     <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="design.html">DESIGN & ENGINEERING</a></li>
+                    <li><a href="design.html">ENGINEERING</a></li>
                     <li><a href="trade.html">INTERNATIONAL TRADE</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
@@ -53,7 +54,7 @@
     </header>
 
     <!-- Menu Overlay -->
-    <div class="menu-overlay"></div>
+    <div class="menu-overlay" aria-hidden="true"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="main-content">
@@ -79,24 +80,24 @@
             <div class="footer-top">
                 <div class="footer-contact">
                     <div class="footer-contact-item">
-                        <span class="icon location-icon" aria-hidden="true">&#x1F4CD;</span>
-                        <a href="https://g.co/kgs/H4mGCcp" target="_blank" rel="noopener" aria-label="Our address: 08007, España, Barcelona, Carrer d'Aragó, 264, 5-3">08007, España, Barcelona, Carrer d'Aragó, 264, 5-3</a>
+                        <span class="icon icon-location" aria-hidden="true"></span>
+                        <a href="https://maps.app.goo.gl/SxhG4C4AYEmz9v4Q9" target="_blank" rel="noopener" aria-label="Our address: 08007, España, Barcelona, Carrer d'Aragó, 264, 5-3">08007, España, Barcelona, Carrer d'Aragó, 264, 5-3</a>
                     </div>
                     <div class="footer-contact-item">
-                        <span class="icon phone-icon" aria-hidden="true">&#x1F4DE;</span>
-                        <a href="tel:+34936949999" class="phone" aria-label="Call us at: +34 936 949 999">+34 936 949 999</a>
+                        <span class="icon icon-phone" aria-hidden="true"></span>
+                        <a href="tel:+34936949999" class="phone" aria-label="Call us: +34 936 949 999">+34 936 949 999</a>
                     </div>
                     <div class="footer-contact-item">
-                        <span class="icon email-icon" aria-hidden="true">&#x2709;</span>
-                        <a href="mailto:info@alsuro.com" class="email" aria-label="Email us at: info@alsuro.com">info@alsuro.com</a>
+                        <span class="icon icon-email" aria-hidden="true"></span>
+                        <a href="mailto:info@alsuro.com" class="email" aria-label="Email us: info@alsuro.com">info@alsuro.com</a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <a href="#" aria-label="Cookies and Privacy Policy">Cookies & Privacy</a>
+                    <a href="cookies.html" aria-label="Политика использования файлов cookie и конфиденциальности">Cookies & Privacy</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> ALSURO - All rights reserved</p>
+                <p>© 2025 ALSURO - All rights reserved</p>
             </div>
         </div>
     </footer>

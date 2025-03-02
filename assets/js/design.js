@@ -174,26 +174,32 @@ const designCategories = [
     }
 ];
 
-// Function to create a card element
 function createCard(category) {
     const card = document.createElement('div');
     card.className = 'card';
-    card.setAttribute('data-category-id', category.id);
     card.setAttribute('data-id', category.id);
+
+    // Проверяем наличие изображения
+    const thumbnailPath = category.image;
     
     card.innerHTML = `
         <div class="card-image">
-            <img src="${category.image}" alt="${category.title}" loading="lazy">
+            <img src="${thumbnailPath}" alt="${category.title}" loading="lazy">
         </div>
         <div class="card-content">
             <h3 class="card-title">${category.title}</h3>
         </div>
     `;
-    
-    // Добавляем обработчик загрузки изображения
+
     const img = card.querySelector('img');
     img.onload = function() {
         this.classList.add('loaded');
+    };
+    
+    img.onerror = function() {
+        console.error(`Ошибка загрузки изображения: ${thumbnailPath}`);
+        // Пробуем загрузить запасное изображение
+        this.src = 'assets/images/placeholder.jpg';
     };
     
     card.addEventListener('click', () => {
@@ -201,6 +207,20 @@ function createCard(category) {
     });
     
     return card;
+}
+
+// Функция для проверки поддержки WebP
+function supportsWebP() {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = function() {
+            resolve(true);
+        };
+        img.onerror = function() {
+            resolve(false);
+        };
+        img.src = 'data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
+    });
 }
 
 // Функция для проверки, находится ли элемент в видимой области
@@ -258,9 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.classList.add('visible');
-            }, 25 * index); // Уменьшаем задержку для более быстрого эффекта появления
+            }, 25 * index);
         });
-    }, 50); // Уменьшаем начальную задержку
+    }, 50);
     
     // Добавляем обработчик прокрутки для анимации
     window.addEventListener('scroll', handleScrollAnimation);
