@@ -1,19 +1,22 @@
 /* Design & Engineering Page Styles */
 
-.design-engineering {
+.design-engineering,
+.trade-section {
     --hero-height: 65vh;
-    padding-top: 80px; /* Добавляю отступ сверху для всего основного контента */
+    padding-top: 80px; /* Отступ сверху для всего основного контента */
 }
 
 @media (max-width: 991px) {
-    .design-engineering {
+    .design-engineering,
+    .trade-section {
         --hero-height: 45vh;
         padding-top: 60px; /* Меньший отступ для планшетов */
     }
 }
 
 @media (max-width: 575px) {
-    .design-engineering {
+    .design-engineering,
+    .trade-section {
         --hero-height: 40vh;
         padding-top: 40px; /* Еще меньший отступ для мобильных */
     }
@@ -87,8 +90,8 @@
 
 /* Card Grid Section */
 .card-grid-section {
-    padding: 2rem 0 2rem; /* Уменьшаем верхний отступ, так как добавили отступ для основного контента */
-    background-color: #222;
+    padding: 2rem 0 2rem;
+    background-color: #fff;
 }
 
 .section-title {
@@ -109,83 +112,86 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Сетка для ENGINEERING */
+.design-engineering .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Сетка для INTERNATIONAL TRADE */
+.trade-section .card-grid {
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .card {
-    background: #333;
-    border-radius: 12px; /* Закругленные углы */
+    background: #fff;
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    transform: translateY(10px);
-    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-    will-change: transform, opacity;
-}
-
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card-image {
-    height: 200px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Соотношение сторон 4:3 */
     overflow: hidden;
-    border-top-left-radius: 12px; /* Закругленные углы для изображения */
-    border-top-right-radius: 12px; /* Закругленные углы для изображения */
 }
 
 .card-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease, opacity 0.2s ease;
-    opacity: 0;
-    will-change: transform, opacity;
-}
-
-.card-image img.loaded {
-    opacity: 1;
+    object-fit: contain; /* Изменено с cover на contain */
+    background-color: #fff; /* Белый фон для изображений */
+    transition: transform 0.3s ease;
 }
 
 .card:hover .card-image img {
-    transform: scale(1.05);
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 .card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #fff;
 }
 
 .card-title {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 0;
-    font-weight: 700;
-    text-align: center;
-    opacity: 1; /* Убедимся, что текст виден */
+    color: #333;
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .card-description {
     color: #aaa;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-top: auto;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 /* Animations */
@@ -201,50 +207,43 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .design-engineering .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .trade-section .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .design-engineering .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .trade-section .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .design-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .intro-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .intro-content p {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .section-description {
-        font-size: 1rem;
-    }
-
-    .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .design-engineering .card-grid,
+    .trade-section .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
-    .design-hero h1 {
-        font-size: 2rem;
-    }
-
-    .intro-content h2 {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card-title {
-        font-size: 1.3rem;
+    .design-engineering .card-grid,
+    .trade-section .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
     }
 } 

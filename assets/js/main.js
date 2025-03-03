@@ -118,4 +118,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Проверяем после полной загрузки страницы
     window.addEventListener('load', checkMenuOverflow);
+
+    // Анимация карточек при прокрутке
+    const cards = document.querySelectorAll('.card');
+    const cardImages = document.querySelectorAll('.card-image img');
+
+    // Функция для проверки, находится ли элемент в области видимости
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        return (
+            rect.top <= windowHeight &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Функция для анимации карточек
+    function animateCards() {
+        cards.forEach(card => {
+            if (isElementInViewport(card)) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Инициализация карточек
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    // Запускаем анимации при загрузке и прокрутке
+    window.addEventListener('load', () => {
+        setTimeout(animateCards, 100);
+    });
+
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(animateCards);
+    });
 });
