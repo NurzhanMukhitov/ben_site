@@ -97,84 +97,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 ALSURO - All rights reserved</p>
+                <p>© <span id="current-year">2025</span> ALSURO - All rights reserved</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Установка текущего года в футере
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Элементы для манипуляций
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mainMenu = document.querySelector('.main-menu');
-        const header = document.querySelector('.header');
-        const menuOverlay = document.querySelector('.menu-overlay');
-        
-        // Функция для закрытия меню
-        function closeMenu() {
-            if (mainMenu.classList.contains('active')) {
-                mainMenu.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        }
-        
-        // Переключение мобильного меню
-        if (mobileMenuToggle && mainMenu && menuOverlay) {
-            mobileMenuToggle.addEventListener('click', function() {
-                const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-                this.setAttribute('aria-expanded', !expanded);
-                mainMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            // Закрываем меню при изменении размера окна
-            window.addEventListener('resize', function() {
-                closeMenu();
-                checkMenuOverflow();
-            });
-            
-            // Закрываем меню по нажатию на оверлей
-            menuOverlay.addEventListener('click', closeMenu);
-        }
-
-        // Функция для проверки переполнения меню
-        function checkMenuOverflow() {
-            // На мобильных и планшетах всегда показываем бургер-меню
-            if (window.innerWidth < 992) return;
-            
-            const container = document.querySelector('.header .container');
-            const logo = document.querySelector('.logo');
-            const menu = document.querySelector('.main-menu');
-            const menuItems = document.querySelectorAll('.main-menu li');
-            
-            if (!container || !menu || !menuItems.length || !logo) return;
-            
-            // Получаем доступную ширину для меню
-            const availableWidth = container.offsetWidth - logo.offsetWidth - 70; // Увеличиваем запас
-            
-            // Считаем общую ширину всех пунктов меню
-            let totalMenuWidth = 0;
-            menuItems.forEach(item => {
-                totalMenuWidth += item.offsetWidth;
-            });
-            
-            // Если меню не помещается, показываем бургер
-            if (totalMenuWidth > availableWidth) {
-                header.classList.add('menu-overflow');
-            } else {
-                header.classList.remove('menu-overflow');
-            }
-        }
-        
-        // Проверяем при загрузке и изменении размера окна
-        window.addEventListener('load', checkMenuOverflow);
-        window.addEventListener('resize', checkMenuOverflow);
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

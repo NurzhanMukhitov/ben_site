@@ -44,27 +44,21 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             
-            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-            this.setAttribute('aria-expanded', !expanded);
-            
             mainMenu.classList.toggle('active');
             if (menuOverlay) menuOverlay.classList.toggle('active');
             this.classList.toggle('active');
-            body.classList.toggle('menu-open');
+            
+            const isExpanded = mainMenu.classList.contains('active');
+            this.setAttribute('aria-expanded', isExpanded);
+            body.classList.toggle('menu-open', isExpanded);
         });
         
         // Закрываем меню при изменении размера окна
-        window.addEventListener('resize', function() {
-            closeMenu();
-            checkMenuOverflow();
-        });
+        window.addEventListener('resize', closeMenu);
         
         // Закрываем меню по нажатию на оверлей
         if (menuOverlay) {
-            menuOverlay.addEventListener('click', function(e) {
-                e.preventDefault();
-                closeMenu();
-            });
+            menuOverlay.addEventListener('click', closeMenu);
         }
         
         // Закрываем меню при клике на пункт меню
@@ -76,8 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Закрываем меню при клике вне меню
         document.addEventListener('click', function(e) {
-            if (mainMenu && mainMenu.classList.contains('active')) {
-                if (!mainMenu.contains(e.target) && e.target !== mobileMenuToggle && !mobileMenuToggle.contains(e.target)) {
+            if (mainMenu.classList.contains('active')) {
+                if (!mainMenu.contains(e.target) && 
+                    !mobileMenuToggle.contains(e.target)) {
                     closeMenu();
                 }
             }

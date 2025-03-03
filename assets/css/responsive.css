@@ -69,17 +69,12 @@
     
     .hero h1 {
         font-size: 36px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     }
     
     .cta-text {
         font-size: 20px;
-    }
-    
-    /* Для лучшей видимости */
-    .hero h1, .cta-text {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-        padding: 10px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     }
     
     /* Всегда показываем бургер-меню на планшетах */
@@ -162,10 +157,14 @@
     }
     
     /* Улучшаем видимость текста */
-    .hero h1, .cta-text {
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 5px;
-        padding: 10px;
+    .hero h1 {
+        font-size: 30px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+    
+    .cta-text {
+        font-size: 18px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     }
     
     /* Всегда показываем бургер-меню на мобильных */
@@ -208,14 +207,6 @@
         padding: 10px 20px;
         width: 100%;
         text-align: center;
-    }
-    
-    .hero h1 {
-        font-size: 30px;
-    }
-    
-    .cta-text {
-        font-size: 18px;
     }
     
     /* Центрируем элементы футера */
@@ -272,10 +263,6 @@
     
     .main-menu {
         display: none;
-    }
-    
-    .main-menu.active {
-        display: block;
         position: fixed;
         top: var(--header-height);
         left: 0;
@@ -283,35 +270,65 @@
         background-color: var(--dark-gray);
         z-index: 999;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .main-menu.active {
+        display: block;
         max-height: calc(100vh - var(--header-height));
         overflow-y: auto;
     }
     
-    .main-menu.active ul {
+    .main-menu ul {
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
+        margin: 0;
     }
     
-    .main-menu.active li {
+    .main-menu li {
         margin: 10px 0;
         width: 100%;
         text-align: center;
     }
     
-    .main-menu.active a {
+    .main-menu a {
         font-size: 18px;
         display: block;
         padding: 10px 20px;
         width: 100%;
+    }
+
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        display: block;
+        opacity: 0.95;
     }
     
     .design-engineering .hero.design-hero {
         height: 35vh !important;
     }
     
+    /* Улучшаем видимость текста */
     .hero h1 {
         font-size: 28px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+    
+    .cta-text {
+        font-size: 18px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     }
     
     .footer {
