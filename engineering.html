@@ -9,15 +9,9 @@
     <link rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css?v=1">
-    <link rel="stylesheet" href="assets/css/design.css?v=1">
+    <link rel="stylesheet" href="assets/css/engineering.css?v=1">
     <link rel="stylesheet" href="assets/css/responsive.css?v=1">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
-    
-    <!-- Предварительная загрузка критических ресурсов -->
-    <link rel="preload" href="assets/images/engineering/thumbnails/agriculture.webp" as="image">
-    <link rel="preload" href="assets/images/engineering/thumbnails/aquaculture.webp" as="image">
-    <link rel="preload" href="assets/images/engineering/thumbnails/aquatics_pools.webp" as="image">
-    <link rel="preload" href="assets/images/engineering/thumbnails/buildings_facilities.webp" as="image">
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
@@ -33,8 +27,8 @@
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="design.html" class="active" aria-current="page">ENGINEERING</a></li>
-                    <li><a href="trade.html">INTERNATIONAL TRADE</a></li>
+                    <li><a href="engineering.html" class="active" aria-current="page">ENGINEERING</a></li>
+                    <li><a href="trade.html">TRADING</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </nav>
@@ -50,9 +44,9 @@
     <div class="menu-overlay" aria-hidden="true"></div>
 
     <!-- Main Content -->
-    <main id="main-content" class="design-engineering">
-        <div class="card-grid-section">
-            <div class="container">
+    <main id="main-content" class="engineering-section">
+        <div class="container">
+            <div class="card-grid-section">
                 <div class="card-grid">
                     <!-- Cards will be dynamically added here -->
                 </div>
@@ -83,17 +77,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 ALSURO - All rights reserved</p>
+                <p>© <span id="current-year">2025</span> ALSURO - All rights reserved</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="scripts/category-data.js"></script>
     <script src="assets/js/main.js?v=1"></script>
-    <script src="assets/js/design.js?v=1"></script>
-    <script>
-        // Установка текущего года в футере
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="assets/js/engineering.js?v=1"></script>
 </body>
 </html>

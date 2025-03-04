@@ -3,11 +3,19 @@ const path = require('path');
 const categoryData = require('./simple-data.js');
 
 // Путь к директории с детальными страницами
-const designDir = path.join(__dirname, '..', 'design');
+const engineeringDir = path.join(__dirname, '..', 'engineering');
 
 // Создаем директорию, если она не существует
-if (!fs.existsSync(designDir)) {
-    fs.mkdirSync(designDir, { recursive: true });
+if (!fs.existsSync(engineeringDir)) {
+    fs.mkdirSync(engineeringDir, { recursive: true });
+}
+
+// Функция для создания URL-friendly имени файла
+function createSlug(title) {
+    return title.toLowerCase()
+               .replace(/&/g, 'and')
+               .replace(/[^a-z0-9]+/g, '_')
+               .replace(/^_+|_+$/g, '');
 }
 
 // Шаблон для детальной страницы
@@ -23,8 +31,8 @@ function generatePageHTML(category) {
     <link rel="preload" href="../assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/design.css">
-    <link rel="stylesheet" href="../assets/css/design-detail.css">
+    <link rel="stylesheet" href="../assets/css/engineering.css">
+    <link rel="stylesheet" href="../assets/css/engineering-detail.css">
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
@@ -40,8 +48,8 @@ function generatePageHTML(category) {
                 <ul>
                     <li><a href="../index.html">HOME</a></li>
                     <li><a href="../about.html">ABOUT US</a></li>
-                    <li><a href="../design.html" class="active" aria-current="page">DESIGN & ENGINEERING</a></li>
-                    <li><a href="../trade.html">INTERNATIONAL TRADE</a></li>
+                    <li><a href="../engineering.html" class="active" aria-current="page">ENGINEERING</a></li>
+                    <li><a href="../trade.html">TRADING</a></li>
                     <li><a href="../contact.html">CONTACT</a></li>
                 </ul>
             </nav>
@@ -57,7 +65,7 @@ function generatePageHTML(category) {
     <div class="menu-overlay"></div>
 
     <!-- Main Content -->
-    <main id="main-content" class="design-detail">
+    <main id="main-content" class="engineering-detail">
         <!-- Hero Section -->
         <section class="detail-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../${category.imageHero}');">
             <div class="container">
@@ -112,9 +120,9 @@ function generatePageHTML(category) {
                                 ${categoryData
                                     .filter(cat => cat.id !== category.id)
                                     .slice(0, 5)
-                                    .map(cat => `<li><a href="${cat.id}.html">${cat.title}</a></li>`)
+                                    .map(cat => `<li><a href="${createSlug(cat.title)}.html">${cat.title}</a></li>`)
                                     .join('\n                                ')}
-                                <li><a href="../design.html">View All Categories</a></li>
+                                <li><a href="../engineering.html">View All Categories</a></li>
                             </ul>
                         </div>
                         
@@ -169,7 +177,8 @@ function generatePageHTML(category) {
 
 // Генерируем страницы для каждой категории
 categoryData.forEach(category => {
-    const filePath = path.join(designDir, `${category.id}.html`);
+    const fileName = `${createSlug(category.title)}.html`;
+    const filePath = path.join(engineeringDir, fileName);
     const htmlContent = generatePageHTML(category);
     
     fs.writeFileSync(filePath, htmlContent);

@@ -1,212 +1,107 @@
-// Design & Engineering Cards Data
+// Engineering Categories Data
 // Импортируем данные из scripts/category-data.js
-const designCategories = [
-    {
-        id: 1,
-        title: 'Agriculture',
-        subtitle: 'Enhancing Agricultural Water Use for Healthier Soil, Crops, and Livestock',
-        image: 'assets/images/engineering/thumbnails/agriculture.webp',
-        imageLarge: 'assets/images/engineering/large/agriculture.webp',
-        imageHero: 'assets/images/engineering/hero/agriculture.webp',
-        description: 'Innovative solutions for sustainable agricultural development.'
-    },
-    {
-        id: 2,
-        title: 'Aquaculture',
-        subtitle: 'Comprehensive Water Management to Improve Yields and Reduce Disease Risks',
-        image: 'assets/images/engineering/thumbnails/aquaculture.webp',
-        imageLarge: 'assets/images/engineering/large/aquaculture.webp',
-        imageHero: 'assets/images/engineering/hero/aquaculture.webp',
-        description: 'Advanced systems for aquaculture and fish farming.'
-    },
-    {
-        id: 3,
-        title: 'Aquatics & Pools',
-        subtitle: 'Maintaining Superior Water Quality for Recreational Facilities',
-        image: 'assets/images/engineering/thumbnails/aquatics_pools.webp',
-        imageLarge: 'assets/images/engineering/large/aquatics_pools.webp',
-        imageHero: 'assets/images/engineering/hero/aquatics_pools.webp',
-        description: 'Professional solutions for aquatic facilities and pools.'
-    },
-    {
-        id: 4,
-        title: 'Buildings & Facilities',
-        subtitle: 'Customized Water Treatment for Safe and Efficient Facility Management',
-        image: 'assets/images/engineering/thumbnails/buildings_facilities.webp',
-        imageLarge: 'assets/images/engineering/large/buildings_facilities.webp',
-        imageHero: 'assets/images/engineering/hero/buildings_facilities.webp',
-        description: 'Comprehensive building and facility management solutions.'
-    },
-    {
-        id: 5,
-        title: 'Construction',
-        subtitle: 'Reliable Water Solutions to Tackle Construction Site Challenges',
-        image: 'assets/images/engineering/thumbnails/construction.webp',
-        imageLarge: 'assets/images/engineering/large/construction.webp',
-        imageHero: 'assets/images/engineering/hero/construction.webp',
-        description: 'Advanced water management solutions for construction projects.'
-    },
-    {
-        id: 6,
-        title: 'Energy & Power Generation',
-        subtitle: 'Innovative Water Solutions for Power and Energy Sectors',
-        image: 'assets/images/engineering/thumbnails/energy_power_generation.webp',
-        imageLarge: 'assets/images/engineering/large/energy_power_generation.webp',
-        imageHero: 'assets/images/engineering/hero/energy_power_generation.webp',
-        description: 'Comprehensive water solutions for energy production.'
-    },
-    {
-        id: 7,
-        title: 'Environment',
-        subtitle: 'Protecting Natural Resources with Advanced Water Solutions',
-        image: 'assets/images/engineering/thumbnails/environment.webp',
-        imageLarge: 'assets/images/engineering/large/environment.webp',
-        imageHero: 'assets/images/engineering/hero/environment.webp',
-        description: 'Environmental protection and resource management solutions.'
-    },
-    {
-        id: 8,
-        title: 'Food & Beverage',
-        subtitle: 'Efficient Water and Wastewater Management for Food Production',
-        image: 'assets/images/engineering/thumbnails/food_beverage.webp',
-        imageLarge: 'assets/images/engineering/large/food_beverage.webp',
-        imageHero: 'assets/images/engineering/hero/food_beverage.webp',
-        description: 'Specialized solutions for food and beverage production.'
-    },
-    {
-        id: 9,
-        title: 'General Industry',
-        subtitle: 'Reliable Water and Wastewater Solutions for Industrial Applications',
-        image: 'assets/images/engineering/thumbnails/general_industry.webp',
-        imageLarge: 'assets/images/engineering/large/general_industry.webp',
-        imageHero: 'assets/images/engineering/hero/general_industry.webp',
-        description: 'Comprehensive industrial water management solutions.'
-    },
-    {
-        id: 10,
-        title: 'Healthcare',
-        subtitle: 'Advanced Water Purification for Critical Medical Operations',
-        image: 'assets/images/engineering/thumbnails/healthcare.webp',
-        imageLarge: 'assets/images/engineering/large/healthcare.webp',
-        imageHero: 'assets/images/engineering/hero/healthcare.webp',
-        description: 'Specialized water solutions for healthcare facilities.'
-    },
-    {
-        id: 11,
-        title: 'Metals & Mining',
-        subtitle: 'Cost-Effective Water Management for Sustainable Mining Operations',
-        image: 'assets/images/engineering/thumbnails/metals_mining.webp',
-        imageLarge: 'assets/images/engineering/large/metals_mining.webp',
-        imageHero: 'assets/images/engineering/hero/metals_mining.webp',
-        description: 'Advanced solutions for mining and metal processing.'
-    },
-    {
-        id: 12,
-        title: 'Microelectronics',
-        subtitle: 'High-Purity Water Solutions for the Semiconductor Industry',
-        image: 'assets/images/engineering/thumbnails/microelectronics.webp',
-        imageLarge: 'assets/images/engineering/large/microelectronics.webp',
-        imageHero: 'assets/images/engineering/hero/microelectronics.webp',
-        description: 'Ultra-pure water solutions for semiconductor manufacturing.'
-    },
-    {
-        id: 13,
-        title: 'Municipal Drinking Water',
-        subtitle: 'Delivering Safe and Reliable Drinking Water for Communities',
-        image: 'assets/images/engineering/thumbnails/municipal_drinking_water.webp',
-        imageLarge: 'assets/images/engineering/large/municipal_drinking_water.webp',
-        imageHero: 'assets/images/engineering/hero/municipal_drinking_water.webp',
-        description: 'Advanced solutions for municipal water treatment.'
-    },
-    {
-        id: 14,
-        title: 'Municipal Wastewater Treatment',
-        subtitle: 'Advanced Solutions for Sustainable Wastewater Management',
-        image: 'assets/images/engineering/thumbnails/municipal_wastewater_treatment.webp',
-        imageLarge: 'assets/images/engineering/large/municipal_wastewater_treatment.webp',
-        imageHero: 'assets/images/engineering/hero/municipal_wastewater_treatment.webp',
-        description: 'Comprehensive municipal wastewater treatment solutions.'
-    },
-    {
-        id: 15,
-        title: 'Oil and Gas',
-        subtitle: 'Innovative Water Management for the Energy Sector',
-        image: 'assets/images/engineering/thumbnails/oil_and_gas.webp',
-        imageLarge: 'assets/images/engineering/large/oil_and_gas.webp',
-        imageHero: 'assets/images/engineering/hero/oil_and_gas.webp',
-        description: 'Specialized solutions for oil and gas operations.'
-    },
-    {
-        id: 16,
-        title: 'Pharmaceutical',
-        subtitle: 'Precision Water Solutions for Critical Pharmaceutical Processes',
-        image: 'assets/images/engineering/thumbnails/pharmaceutical.webp',
-        imageLarge: 'assets/images/engineering/large/pharmaceutical.webp',
-        imageHero: 'assets/images/engineering/hero/pharmaceutical.webp',
-        description: 'High-purity water solutions for pharmaceutical manufacturing.'
-    },
-    {
-        id: 17,
-        title: 'Refining & Chemicals',
-        subtitle: 'Ensuring Quality and Compliance in Chemical and Hydrocarbon Processing',
-        image: 'assets/images/engineering/thumbnails/refining_chemicals.webp',
-        imageLarge: 'assets/images/engineering/large/refining_chemicals.webp',
-        imageHero: 'assets/images/engineering/hero/refining_chemicals.webp',
-        description: 'Advanced solutions for chemical and refining processes.'
-    },
-    {
-        id: 18,
-        title: 'Transportation',
-        subtitle: 'Smart Water Solutions for the Transportation Industry',
-        image: 'assets/images/engineering/thumbnails/transportation.webp',
-        imageLarge: 'assets/images/engineering/large/transportation.webp',
-        imageHero: 'assets/images/engineering/hero/transportation.webp',
-        description: 'Specialized solutions for transportation applications.'
-    },
-    {
-        id: 19,
-        title: 'Utility Infrastructure',
-        subtitle: 'Revolutionizing Smart Water and Energy Management',
-        image: 'assets/images/engineering/thumbnails/utility_infrastructure.webp',
-        imageLarge: 'assets/images/engineering/large/utility_infrastructure.webp',
-        imageHero: 'assets/images/engineering/hero/utility_infrastructure.webp',
-        description: 'Innovative solutions for utility infrastructure.'
-    }
-];
 
+// Используем массив categories из category-data.js
+
+function createSlug(title) {
+    // Специальные случаи для точного соответствия именам файлов
+    const specialCases = {
+        'Energy & Power Generation': 'energy_power_generation',
+        'Aquatics & Pools': 'aquatics_pools',
+        'Buildings & Facilities': 'buildings_facilities',
+        'Food & Beverage': 'food_beverage',
+        'Metals & Mining': 'metals_mining',
+        'Oil and Gas': 'oil_and_gas',
+        'Refining & Chemicals': 'refining_chemicals',
+        'Municipal Drinking Water': 'municipal_drinking_water',
+        'Municipal Wastewater Treatment': 'municipal_wastewater_treatment',
+        'Utility Infrastructure': 'utility_infrastructure',
+        'General Industry': 'general_industry'
+    };
+
+    // Проверяем специальные случаи
+    if (specialCases[title]) {
+        return specialCases[title];
+    }
+
+    // Общий случай для остальных названий
+    return title.toLowerCase()
+               .replace(/[^a-z0-9]+/g, '_')
+               .replace(/^_+|_+$/g, '');
+}
+
+// Функция для создания карточки категории
 function createCard(category) {
     const card = document.createElement('div');
     card.className = 'card';
     card.setAttribute('data-id', category.id);
-
-    // Проверяем наличие изображения
-    const thumbnailPath = category.image;
     
-    card.innerHTML = `
-        <div class="card-image">
-            <img src="${thumbnailPath}" alt="${category.title}" loading="lazy">
-        </div>
-        <div class="card-content">
-            <h3 class="card-title">${category.title}</h3>
-        </div>
-    `;
-
-    const img = card.querySelector('img');
-    img.onload = function() {
-        this.classList.add('loaded');
-    };
+    const cardImage = document.createElement('div');
+    cardImage.className = 'card-image';
     
+    const img = document.createElement('img');
+    img.src = category.image;
+    img.alt = category.title;
+    img.loading = 'lazy';
     img.onerror = function() {
-        console.error(`Ошибка загрузки изображения: ${thumbnailPath}`);
-        // Пробуем загрузить запасное изображение
-        this.src = 'assets/images/placeholder.jpg';
+        // Если webp не загрузился, пробуем jpg
+        if (this.src.endsWith('.webp')) {
+            this.src = this.src.replace('.webp', '.jpg');
+        }
+        // Если jpg не загрузился, показываем плейсхолдер
+        img.onerror = function() {
+            this.src = 'assets/images/placeholder.jpg';
+            this.onerror = null; // Предотвращаем бесконечный цикл
+        };
     };
     
+    const cardContent = document.createElement('div');
+    cardContent.className = 'card-content';
+    
+    const title = document.createElement('h2');
+    title.className = 'card-title';
+    title.textContent = category.title;
+    
+    const description = document.createElement('p');
+    description.className = 'card-description';
+    description.textContent = category.description;
+    
+    cardImage.appendChild(img);
+    cardContent.appendChild(title);
+    cardContent.appendChild(description);
+    card.appendChild(cardImage);
+    card.appendChild(cardContent);
+    
+    // Добавляем обработчик клика для перехода на страницу категории
     card.addEventListener('click', () => {
-        window.location.href = `design/${category.id}.html`;
+        const slug = createSlug(category.title);
+        window.location.href = `engineering/${slug}.html`;
     });
     
     return card;
+}
+
+// Функция для загрузки изображений
+function loadImages(category) {
+    // Загружаем все изображения для категории
+    const images = [
+        category.image,
+        category.imageLarge,
+        category.imageHero
+    ];
+    
+    images.forEach(src => {
+        if (src) {
+            const img = new Image();
+            img.src = src;
+            img.onerror = function() {
+                if (src.endsWith('.webp')) {
+                    // Пробуем загрузить JPG версию
+                    this.src = src.replace('.webp', '.jpg');
+                }
+            };
+        }
+    });
 }
 
 // Функция для проверки поддержки WebP
@@ -239,55 +134,47 @@ function handleScrollAnimation() {
     const cards = document.querySelectorAll('.card:not(.visible)');
     cards.forEach(card => {
         if (isInViewport(card)) {
-            setTimeout(() => {
-                card.classList.add('visible');
-            }, 100 * parseInt(card.getAttribute('data-id')));
+            card.classList.add('visible');
         }
     });
 }
 
 // Функция для предварительной загрузки изображений
 function preloadImages() {
-    // Предзагружаем все изображения для быстрого отображения
-    designCategories.forEach(category => {
-        const img = new Image();
-        img.src = category.image;
-    });
+    if (typeof categories !== 'undefined') {
+        categories.forEach(category => {
+            const img = new Image();
+            img.src = category.image;
+        });
+    }
 }
 
 // Инициализация страницы
 document.addEventListener('DOMContentLoaded', () => {
     const cardGrid = document.querySelector('.card-grid');
     
-    // Предзагружаем изображения сразу
-    preloadImages();
-    
-    // Создаем и добавляем карточки на страницу
-    designCategories.forEach(category => {
-        const card = createCard(category);
-        cardGrid.appendChild(card);
-    });
-    
-    // Делаем карточки видимыми сразу при загрузке страницы
-    setTimeout(() => {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('visible');
-            }, 25 * index);
+    // Проверяем наличие данных категорий
+    if (typeof categories !== 'undefined' && Array.isArray(categories)) {
+        // Создаем и добавляем карточки на страницу
+        categories.forEach(category => {
+            const card = createCard(category);
+            cardGrid.appendChild(card);
+            loadImages(category); // Предзагружаем изображения
         });
-    }, 50);
-    
-    // Добавляем обработчик прокрутки для анимации
-    window.addEventListener('scroll', handleScrollAnimation);
-    
-    // Устанавливаем текущий год в футере
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    } else {
+        console.error('Categories data not found or invalid');
+        cardGrid.innerHTML = '<p class="error-message">Unable to load categories. Please try again later.</p>';
+    }
+
+    // Обновляем Related Solutions если мы на странице категории
+    if (window.location.pathname.includes('/engineering/')) {
+        updateRelatedSolutions();
+    }
 });
 
 function loadCategory(category) {
     const heroImage = document.querySelector('.hero-image');
-    heroImage.style.backgroundImage = `url('${category.imageHero.replace('design', 'engineering')}')`;
+    heroImage.style.backgroundImage = `url('${category.imageHero}')`;
     
     document.querySelector('.category-title').textContent = category.title;
     document.querySelector('.category-subtitle').textContent = category.subtitle;
@@ -299,4 +186,57 @@ function loadCategory(category) {
     updateList('.approach-list', category.content.approach);
     updateList('.technologies-list', category.content.technologies);
     updateList('.benefits-list', category.content.benefits);
+}
+
+// Функция для получения случайных категорий
+function getRandomCategories(currentCategoryId, count = 5) {
+    // Фильтруем текущую категорию
+    const availableCategories = categories.filter(cat => cat.id !== currentCategoryId);
+    
+    // Перемешиваем массив
+    const shuffled = availableCategories.sort(() => 0.5 - Math.random());
+    
+    // Возвращаем первые count элементов
+    return shuffled.slice(0, count);
+}
+
+// Функция для обновления секции Related Solutions
+function updateRelatedSolutions() {
+    const relatedSection = document.querySelector('.other-categories, .related-solutions');
+    if (!relatedSection) return;
+
+    // Получаем текущий ID категории из URL
+    const currentPath = window.location.pathname;
+    const currentCategory = categories.find(cat => currentPath.includes(createSlug(cat.title)));
+    if (!currentCategory) return;
+
+    // Получаем случайные категории
+    const relatedCategories = getRandomCategories(currentCategory.id);
+
+    // Обновляем заголовок
+    const heading = relatedSection.querySelector('h3');
+    if (heading) {
+        heading.textContent = 'Related Solutions';
+    }
+
+    // Обновляем список категорий
+    const list = relatedSection.querySelector('ul');
+    if (list) {
+        list.innerHTML = relatedCategories.map(cat => `
+            <li>
+                <a href="../engineering/${createSlug(cat.title)}.html">
+                    <div class="related-item">
+                        <img src="../${cat.image}" alt="${cat.title}" loading="lazy" onerror="this.src='../assets/images/placeholder.jpg'">
+                        <span>${cat.title}</span>
+                    </div>
+                </a>
+            </li>
+        `).join('') + `
+        <li class="view-all">
+            <a href="../engineering.html">
+                <span>View All Categories</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </li>`;
+    }
 } 
