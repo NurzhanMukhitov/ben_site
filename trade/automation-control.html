@@ -7,143 +7,133 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/design.css">
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
     <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
-            <div class="header-content">
-                <a href="../index.html" class="logo" aria-label="ALSURO">ALSURO</a>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <nav class="main-nav" role="navigation">
-                    <ul class="nav-list">
-                        <li><a href="../index.html">HOME</a></li>
-                        <li><a href="../about.html">ABOUT US</a></li>
-                        <li><a href="../design.html">ENGINEERING</a></li>
-                        <li><a href="../trade.html" class="active">INTERNATIONAL TRADE</a></li>
-                        <li><a href="../contact.html">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <a href="../index.html" class="logo" aria-label="ALSURO home">
+                <span class="logo-text">ALSURO</span>
+            </a>
+            <nav class="main-menu" role="navigation" aria-label="Main navigation" id="main-menu">
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="../about.html">ABOUT US</a></li>
+                    <li><a href="../design.html">ENGINEERING</a></li>
+                    <li><a href="../trade.html" class="active" aria-current="page">INTERNATIONAL TRADE</a></li>
+                    <li><a href="../contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main role="main">
-        <!-- Hero Section -->
-        <section class="detail-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../assets/images/trade/hero/automation_control.jpg');">
-            <div class="container">
-                <h1>Automation And Control Systems</h1>
-                <p class="hero-description">Comprehensive range of automation and control solutions for industrial applications</p>
-            </div>
-        </section>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" aria-hidden="true"></div>
 
-        <!-- Subcategories -->
-        <section class="subcategories-section">
+    <!-- Main Content -->
+    <main id="main-content" class="design-engineering">
+        <!-- Card Grid Section -->
+        <section class="card-grid-section">
             <div class="container">
-                <div class="categories-grid">
+                <div class="card-grid">
                     <!-- Control Devices -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/control_devices.jpg" alt="Control Devices" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Control Devices</h2>
-                            <p class="category-count">46,975 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/control_devices.webp" alt="Control Devices" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Control Devices</h2>
+                        </div>
                     </div>
 
                     <!-- Machines -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/machines.jpg" alt="Machines" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Machines</h2>
-                            <p class="category-count">1,427 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/machines.webp" alt="Machines" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Machines</h2>
+                        </div>
                     </div>
 
                     <!-- Measurement and Indicators -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/measurement_indicators.jpg" alt="Measurement and Indicators" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Measurement and Indicators</h2>
-                            <p class="category-count">9,149 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/measurement_indicators.webp" alt="Measurement and Indicators" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Measurement and Indicators</h2>
+                        </div>
                     </div>
 
                     <!-- Panel Accessories -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/panel_accessories.jpg" alt="Panel Accessories" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Panel Accessories</h2>
-                            <p class="category-count">56,122 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/panel_accessories.webp" alt="Panel Accessories" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Panel Accessories</h2>
+                        </div>
                     </div>
 
                     <!-- Power Management -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/power_management.jpg" alt="Power Management" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Power Management</h2>
-                            <p class="category-count">3,608 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/power_management.webp" alt="Power Management" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Power Management</h2>
+                        </div>
                     </div>
 
                     <!-- Pressure and Flow Control -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/pressure_flow.jpg" alt="Pressure and Flow Control" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Pressure and Flow Control</h2>
-                            <p class="category-count">3,871 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/pressure_flow.webp" alt="Pressure and Flow Control" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Pressure and Flow Control</h2>
+                        </div>
                     </div>
 
                     <!-- Programmable Controllers -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/programmable_controllers.jpg" alt="Programmable Controllers" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Programmable Controllers</h2>
-                            <p class="category-count">88 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/programmable_controllers.webp" alt="Programmable Controllers" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Programmable Controllers</h2>
+                        </div>
                     </div>
 
                     <!-- Robotic Systems -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/robotic_systems.jpg" alt="Robotic Systems and Accessories" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Robotic Systems and Accessories</h2>
-                            <p class="category-count">3,382 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/robotic_systems.webp" alt="Robotic Systems" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Robotic Systems</h2>
+                        </div>
                     </div>
 
                     <!-- Specialized Control Systems -->
-                    <div class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-image">
-                                <img src="../assets/images/trade/thumbnails/specialized_control.jpg" alt="Specialized Control Systems" loading="lazy">
-                            </div>
-                            <h2 class="category-title">Specialized Control Systems</h2>
-                            <p class="category-count">1,144 products</p>
-                        </a>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../assets/images/trade/automation/specialized_control.webp" alt="Specialized Control Systems" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">Specialized Control Systems</h2>
+                        </div>
                     </div>
                 </div>
             </div>
