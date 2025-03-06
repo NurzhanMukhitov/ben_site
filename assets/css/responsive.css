@@ -110,6 +110,7 @@
     
     .main-menu.active a {
         font-size: 18px;
+        text-decoration: none;
     }
     
     /* Корректировка видео для этого диапазона */
@@ -203,6 +204,7 @@
     
     .main-menu.active a {
         font-size: 18px;
+        text-decoration: none;
         display: block;
         padding: 10px 20px;
         width: 100%;
@@ -293,6 +295,7 @@
     
     .main-menu a {
         font-size: 18px;
+        text-decoration: none;
         display: block;
         padding: 10px 20px;
         width: 100%;

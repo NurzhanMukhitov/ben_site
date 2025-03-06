@@ -103,7 +103,7 @@
     top: 10px;
     width: 8px;
     height: 8px;
-    background-color: #007bff;
+    background-color: #666;
     border-radius: 50%;
 }
 
@@ -159,38 +159,40 @@
 
 .contact-widget {
     background-color: #f8f9fa;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .contact-widget h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-family: 'Montserrat', sans-serif;
 }
 
 .contact-widget p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: #007bff;
+    padding: 10px 25px;
+    background-color: #666;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #555;
 }
 
 .other-categories ul li.view-all,

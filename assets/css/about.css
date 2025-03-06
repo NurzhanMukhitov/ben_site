@@ -68,33 +68,28 @@ main.about-section {
 
 /* Call to action block */
 .cta-block {
-    background-color: #f5f5f5;
-    padding: 30px;
-    border-radius: 8px;
-    margin-top: 40px;
     text-align: center;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 400px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
 }
 
 .cta-block p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
 
-.btn-primary {
-    background-color: var(--accent-color);
+.cta-block .btn-primary {
+    background-color: #666;
     color: #fff;
-    padding: 12px 30px;
-    border-radius: 4px;
-    display: inline-block;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
+    padding: 10px 25px;
+    font-size: 1rem;
 }
 
-.btn-primary:hover {
-    background-color: #0052cc;
-    transform: translateY(-2px);
+.cta-block .btn-primary:hover {
+    background-color: #555;
 }
 
 /* Responsive styles */
@@ -168,7 +163,7 @@ main.about-section {
         font-size: 1.1rem;
     }
     
-    .btn-primary {
+    .cta-block .btn-primary {
         padding: 10px 25px;
         font-size: 0.9rem;
     }

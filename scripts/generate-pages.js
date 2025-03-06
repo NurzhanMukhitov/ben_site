@@ -144,7 +144,7 @@ function generatePageHTML(category) {
                 <div class="footer-contact">
                     <div class="footer-contact-item">
                         <span class="icon location-icon" aria-hidden="true">&#x1F4CD;</span>
-                        <a href="https://g.co/kgs/H4mGCcp" target="_blank" rel="noopener" aria-label="Our address: 08007, España, Barcelona, Carrer d'Aragó, 264, 5-3">08007, España, Barcelona, Carrer d'Aragó, 264, 5-3</a>
+                        <a href="https://g.co/kgs/BFZ6YtK" target="_blank" rel="noopener" aria-label="Our address: 08007, España, Barcelona, Carrer d'Aragó, 264, 5-3">08007, España, Barcelona, Carrer d'Aragó, 264, 5-3</a>
                     </div>
                     <div class="footer-contact-item">
                         <span class="icon phone-icon" aria-hidden="true">&#x1F4DE;</span>

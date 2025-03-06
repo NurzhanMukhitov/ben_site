@@ -592,4 +592,31 @@
     .card-grid-section {
         padding: 0 0 25px;
     }
+}
+
+@media (max-width: 767px) {
+    .engineering-section {
+        padding-top: calc(var(--header-height) + 20px);
+    }
+    
+    .card-grid-section {
+        padding-top: 20px;
+    }
+}
+
+.contact-widget .btn-primary:focus,
+.contact-widget .btn-primary:active,
+.contact-widget .btn-primary:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.contact-widget .btn-primary {
+    background-color: #666;
+    border-color: #666;
+}
+
+.contact-widget .btn-primary:hover {
+    background-color: #555;
+    border-color: #555;
 } 
