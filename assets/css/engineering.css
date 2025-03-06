@@ -22,7 +22,13 @@
 
 /* Card Grid Section */
 .card-grid-section {
-    padding: 60px 0;
+    padding: 0 0 60px;
+}
+
+.card-grid-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .card-grid {
@@ -46,21 +52,21 @@
 }
 
 .card {
-    background: #fff;
+    background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    -webkit-tap-highlight-color: transparent; /* Убираем подсветку на мобильных */
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-link {
@@ -210,7 +216,8 @@
     font-weight: 700;
     color: #333;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0;
+    padding: 0 15px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -227,9 +234,11 @@
 }
 
 /* Accessibility */
-.card:focus {
-    outline: 3px solid #007bff;
-    outline-offset: 2px;
+.card:focus,
+.card:active,
+.card:focus-visible {
+    outline: none !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Print Styles */
@@ -499,5 +508,88 @@
     }
     .card-grid-section {
         padding: 30px 0;
+    }
+}
+
+/* Trade Section Styles */
+.trade-section {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 40px;
+    background-color: #fff;
+}
+
+.trade-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.trade-section .section-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 40px 0 !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+}
+
+/* Section Title Styles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin: 40px 0;
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive styles for section title and spacing */
+@media (max-width: 1200px) {
+    .trade-section .section-title,
+    .section-title {
+        font-size: 2.2rem;
+        margin: 35px 0;
+    }
+    
+    .card-grid-section {
+        padding: 0 0 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .trade-section .section-title,
+    .section-title {
+        font-size: 2rem;
+        margin: 30px 0;
+    }
+    
+    .card-grid-section {
+        padding: 0 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .trade-section .section-title,
+    .section-title {
+        font-size: 1.8rem;
+        margin: 25px 0;
+    }
+    
+    .card-grid-section {
+        padding: 0 0 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .trade-section .section-title,
+    .section-title {
+        font-size: 1.6rem;
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+    
+    .card-grid-section {
+        padding: 0 0 25px;
     }
 } 

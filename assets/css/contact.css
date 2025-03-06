@@ -14,9 +14,16 @@
 
 /* Contact Section */
 .contact-section {
-    padding: 120px 0 100px;
+    padding: 120px 0 30px;
     background-color: #fff;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px - 80px);
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.contact-section .container {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -33,7 +40,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    flex: 1;
 }
 
 .contact-grid {
@@ -42,7 +48,8 @@
     gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 /* Contact Info */
@@ -137,7 +144,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 600px;
+    height: 300px;
 }
 
 .map-container iframe {
@@ -248,7 +255,7 @@
 
 .submit-button:hover {
     background-color: #0042a6;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 /* Icons */
@@ -276,12 +283,14 @@
 /* Responsive Design */
 @media (max-width: 991px) {
     .contact-section {
-        padding: 100px 0 80px;
+        padding: 100px 0 25px;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
         max-width: 600px;
+        gap: 40px;
+        margin-bottom: 25px;
     }
 
     .section-title {
@@ -296,7 +305,12 @@
 
 @media (max-width: 767px) {
     .contact-section {
-        padding: 80px 0 60px;
+        padding: 80px 0 20px;
+    }
+
+    .contact-grid {
+        gap: 30px;
+        margin-bottom: 20px;
     }
 
     .contact-section .section-title {
@@ -334,19 +348,24 @@
     }
 
     .map-container {
-        height: 400px;
+        height: 300px;
     }
 }
 
 @media (max-width: 575px) {
     .contact-section {
-        padding: 60px 0 40px;
+        padding: 60px 0 15px;
     }
 
     .contact-section .section-title {
         margin-top: 60px;
         margin-bottom: 40px;
         font-size: 1.8rem;
+    }
+
+    .contact-grid {
+        gap: 20px;
+        margin-bottom: 15px;
     }
 
     .info-block {
@@ -369,7 +388,7 @@
     }
 
     .map-container {
-        height: 350px;
+        height: 250px;
     }
 }
 
@@ -460,5 +479,63 @@
     
     .thank-you-content p {
         font-size: 1rem;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 30px 0 15px;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    margin-top: auto;
+    position: relative !important;
+    bottom: auto !important;
+}
+
+/* Footer Styles для страницы контактов */
+.contact-section + .footer {
+    margin-top: 0;
+}
+
+/* Стили для прикрепления футера к низу страницы */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Основной контент займет все доступное пространство */
+main.contact-section {
+    flex: 1 0 auto;
+}
+
+/* Корректировка вертикального отображения контактов в футере */
+.footer-contact {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.footer-contact-item {
+    margin-bottom: 5px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+@media (max-width: 768px) {
+    /* Сохранение структуры обертки страницы */
+    .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Правильное отображение на мобильных устройствах */
+    .contact-page main.contact-section {
+        padding-bottom: 0 !important;
     }
 } 
