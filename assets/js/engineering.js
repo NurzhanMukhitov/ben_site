@@ -40,19 +40,20 @@ function createCard(category) {
     cardImage.className = 'card-image';
     
     const img = document.createElement('img');
-    // Пробуем загрузить WebP версию, если путь содержит .webp
-    if (category.image.endsWith('.webp')) {
-        const jpgPath = category.image.replace('.webp', '.jpg');
-        img.onerror = function() {
-            this.onerror = null; // Предотвращаем бесконечный цикл
-            this.src = jpgPath;
-        };
-        img.src = category.image;
-    } else {
-        img.src = category.image;
-    }
+    img.src = category.image;
     img.alt = category.title;
     img.loading = 'lazy';
+    img.onerror = function() {
+        // Если webp не загрузился, пробуем jpg
+        if (this.src.endsWith('.webp')) {
+            this.src = this.src.replace('.webp', '.jpg');
+        }
+        // Если jpg не загрузился, показываем плейсхолдер
+        img.onerror = function() {
+        this.src = 'assets/images/placeholder.jpg';
+            this.onerror = null; // Предотвращаем бесконечный цикл
+        };
+    };
     
     const cardContent = document.createElement('div');
     cardContent.className = 'card-content';
@@ -82,24 +83,23 @@ function createCard(category) {
 
 // Функция для загрузки изображений
 function loadImages(category) {
+    // Загружаем все изображения для категории
     const images = [
-        { path: category.image, type: 'thumbnail' },
-        { path: category.imageLarge, type: 'large' },
-        { path: category.imageHero, type: 'hero' }
+        category.image,
+        category.imageLarge,
+        category.imageHero
     ];
     
-    images.forEach(({path, type}) => {
-        if (path) {
+    images.forEach(src => {
+        if (src) {
             const img = new Image();
-            if (path.endsWith('.webp')) {
-                const jpgPath = path.replace('.webp', '.jpg');
-                img.onerror = function() {
-                    this.onerror = null;
-                    const fallbackImg = new Image();
-                    fallbackImg.src = jpgPath;
-                };
-            }
-            img.src = path;
+            img.src = src;
+            img.onerror = function() {
+                if (src.endsWith('.webp')) {
+                    // Пробуем загрузить JPG версию
+                    this.src = src.replace('.webp', '.jpg');
+                }
+            };
         }
     });
 }

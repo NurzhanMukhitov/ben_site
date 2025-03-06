@@ -158,4 +158,71 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         requestAnimationFrame(animateCards);
     });
+
+    // Функция для оптимизации видео
+    function setupVideo() {
+        const heroVideo = document.querySelector('.hero-video');
+        if (!heroVideo) return;
+
+        // Определяем, мобильное ли устройство
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        
+        // Функция для загрузки подходящего источника видео
+        function loadAppropriateSource() {
+            const sources = heroVideo.getElementsByTagName('source');
+            for (let source of sources) {
+                if (isMobile && source.media === '(max-width: 768px)' || 
+                    !isMobile && !source.media) {
+                    // Устанавливаем приоритет для текущего источника
+                    source.setAttribute('fetchpriority', 'high');
+                } else {
+                    // Для неиспользуемых источников убираем приоритет
+                    source.removeAttribute('fetchpriority');
+                }
+            }
+            heroVideo.load();
+        }
+
+        // Загружаем подходящий источник при старте
+        loadAppropriateSource();
+
+        // Обработчик ошибок
+        heroVideo.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            heroVideo.style.display = 'none';
+            heroVideo.closest('.hero').style.backgroundImage = 'url(assets/images/resize/mobile.webp)';
+        });
+
+        // Оптимизация воспроизведения
+        let videoVisible = true;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && videoVisible) {
+                    heroVideo.pause();
+                    videoVisible = false;
+                } else if (entry.isIntersecting && !videoVisible) {
+                    // Пробуем воспроизвести видео
+                    const playPromise = heroVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {
+                            // Если автовоспроизведение заблокировано
+                            heroVideo.style.display = 'none';
+                            heroVideo.closest('.hero').style.backgroundImage = 'url(assets/images/resize/mobile.webp)';
+                        });
+                    }
+                    videoVisible = true;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(heroVideo);
+
+        // Отслеживаем изменение размера экрана
+        window.matchMedia('(max-width: 768px)').addListener(() => {
+            loadAppropriateSource();
+        });
+    }
+
+    // Запускаем после загрузки DOM
+    document.addEventListener('DOMContentLoaded', setupVideo);
 });

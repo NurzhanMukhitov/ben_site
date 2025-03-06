@@ -7,6 +7,10 @@
     <title>ALSURO</title>
     <link rel="preload" href="assets/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Preload video -->
+    <link rel="preload" href="assets/video/main_video.webm" as="video" type="video/webm" />
+    <link rel="preload" href="assets/video/main_video_mobile.webm" as="video" type="video/webm" media="(max-width: 768px)" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -59,10 +63,14 @@
 
     <!-- Hero Section -->
     <section class="hero" id="main-content">
-        <video autoplay loop muted playsinline class="hero-video">
+        <video autoplay loop muted playsinline class="hero-video" poster="assets/images/resize/mobile.webp">
+            <!-- Desktop versions -->
             <source src="assets/video/main_video.webm" type="video/webm">
             <source src="assets/video/main_video.mp4" type="video/mp4">
-            <!-- Если браузер не поддерживает видео, то будет использоваться фоновое изображение из CSS -->
+            
+            <!-- Mobile versions -->
+            <source src="assets/video/main_video_mobile.webm" type="video/webm" media="(max-width: 768px)">
+            <source src="assets/video/main_video_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
         </video>
         <div class="hero-overlay"></div>
         <div class="container">

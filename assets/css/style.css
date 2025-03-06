@@ -881,19 +881,13 @@ body.menu-open {
     }
     
     .main-menu.active li {
-        margin: 10px 0;
+        margin: var(--space-xs) 0;
         width: 100%;
-        text-align: center;
-        border-bottom: none;
     }
     
     .main-menu.active a {
-        font-size: 18px;
-        text-decoration: none;
-        display: block;
-        padding: 10px 20px;
-        width: 100%;
-        border: none;
+        padding: var(--space-sm);
+        justify-content: center;
     }
     
     .hero-content {
