@@ -162,36 +162,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для оптимизации видео
     function setupVideo() {
         const heroVideo = document.querySelector('.hero-video');
-        if (!heroVideo) return;
-
-        // Определяем, мобильное ли устройство
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (!heroVideo) {
+            console.log('Video element not found');
+            return;
+        }
         
-        // Функция для загрузки подходящего источника видео
-        function loadAppropriateSource() {
-            const sources = heroVideo.getElementsByTagName('source');
-            for (let source of sources) {
-                if (isMobile && source.media === '(max-width: 768px)' || 
-                    !isMobile && !source.media) {
-                    // Устанавливаем приоритет для текущего источника
-                    source.setAttribute('fetchpriority', 'high');
-                } else {
-                    // Для неиспользуемых источников убираем приоритет
-                    source.removeAttribute('fetchpriority');
-                }
+        // Функция для переключения на фоновое изображение
+        function switchToBackgroundImage() {
+            heroVideo.style.display = 'none';
+            const heroSection = heroVideo.closest('.hero');
+            if (heroSection) {
+                heroSection.style.backgroundImage = 'url(assets/images/resize/mobile.webp)';
+                heroSection.style.backgroundSize = 'cover';
+                heroSection.style.backgroundPosition = 'center';
             }
-            heroVideo.load();
         }
 
-        // Загружаем подходящий источник при старте
-        loadAppropriateSource();
+        // Проверяем поддержку формата WebM
+        if (!heroVideo.canPlayType('video/webm').length) {
+            console.log('WebM format is not supported');
+            switchToBackgroundImage();
+            return;
+        }
 
         // Обработчик ошибок
         heroVideo.addEventListener('error', function(e) {
-            console.error('Video error:', e);
-            heroVideo.style.display = 'none';
-            heroVideo.closest('.hero').style.backgroundImage = 'url(assets/images/resize/mobile.webp)';
+            console.error('Video error details:', {
+                error: e,
+                networkState: heroVideo.networkState,
+                readyState: heroVideo.readyState,
+                currentSrc: heroVideo.currentSrc
+            });
+            switchToBackgroundImage();
         });
+
+        // Таймаут для проверки загрузки видео
+        const videoLoadTimeout = setTimeout(() => {
+            if (heroVideo.readyState === 0) {
+                console.log('Video load timeout');
+                switchToBackgroundImage();
+            }
+        }, 5000);
 
         // Оптимизация воспроизведения
         let videoVisible = true;
@@ -201,13 +212,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroVideo.pause();
                     videoVisible = false;
                 } else if (entry.isIntersecting && !videoVisible) {
-                    // Пробуем воспроизвести видео
                     const playPromise = heroVideo.play();
                     if (playPromise !== undefined) {
-                        playPromise.catch(() => {
-                            // Если автовоспроизведение заблокировано
-                            heroVideo.style.display = 'none';
-                            heroVideo.closest('.hero').style.backgroundImage = 'url(assets/images/resize/mobile.webp)';
+                        playPromise.catch((error) => {
+                            console.error('Video autoplay error:', error);
+                            switchToBackgroundImage();
                         });
                     }
                     videoVisible = true;
@@ -217,9 +226,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         observer.observe(heroVideo);
 
-        // Отслеживаем изменение размера экрана
-        window.matchMedia('(max-width: 768px)').addListener(() => {
-            loadAppropriateSource();
+        // Обработчик успешной загрузки
+        heroVideo.addEventListener('loadeddata', () => {
+            console.log('Video loaded successfully');
+            clearTimeout(videoLoadTimeout);
+            heroVideo.style.display = 'block';
+        });
+
+        // Обработчик для случая, когда видео не может быть воспроизведено
+        heroVideo.addEventListener('suspend', () => {
+            if (heroVideo.readyState < 2) { // Если видео не начало загружаться
+                console.log('Video suspended before loading');
+                switchToBackgroundImage();
+            }
         });
     }
 
