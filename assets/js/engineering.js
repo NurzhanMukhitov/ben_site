@@ -226,7 +226,7 @@ function updateRelatedSolutions() {
             <li>
                 <a href="../engineering/${createSlug(cat.title)}.html">
                     <div class="related-item">
-                        <img src="../../${cat.image}" alt="${cat.title}" loading="lazy" onerror="this.src='../../assets/images/placeholder.jpg'">
+                        <img src="../${cat.image}" alt="${cat.title}" loading="lazy" onerror="this.src='../assets/images/placeholder.jpg'">
                         <span>${cat.title}</span>
                     </div>
                 </a>
