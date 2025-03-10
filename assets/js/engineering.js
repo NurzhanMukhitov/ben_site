@@ -1,35 +1,6 @@
 // Engineering Categories Data
 // Импортируем данные из scripts/category-data.js
 
-// Используем массив categories из category-data.js
-
-function createSlug(title) {
-    // Специальные случаи для точного соответствия именам файлов
-    const specialCases = {
-        'Energy & Power Generation': 'energy_power_generation',
-        'Aquatics & Pools': 'aquatics_pools',
-        'Buildings & Facilities': 'buildings_facilities',
-        'Food & Beverage': 'food_beverage',
-        'Metals & Mining': 'metals_mining',
-        'Oil and Gas': 'oil_and_gas',
-        'Refining & Chemicals': 'refining_chemicals',
-        'Municipal Drinking Water': 'municipal_drinking_water',
-        'Municipal Wastewater Treatment': 'municipal_wastewater_treatment',
-        'Utility Infrastructure': 'utility_infrastructure',
-        'General Industry': 'general_industry'
-    };
-
-    // Проверяем специальные случаи
-    if (specialCases[title]) {
-        return specialCases[title];
-    }
-
-    // Общий случай для остальных названий
-    return title.toLowerCase()
-               .replace(/[^a-z0-9]+/g, '_')
-               .replace(/^_+|_+$/g, '');
-}
-
 // Функция для создания карточки категории
 function createCard(category) {
     const card = document.createElement('div');
@@ -50,7 +21,7 @@ function createCard(category) {
         }
         // Если jpg не загрузился, показываем плейсхолдер
         img.onerror = function() {
-        this.src = 'assets/images/placeholder.jpg';
+            this.src = 'assets/images/placeholder.jpg';
             this.onerror = null; // Предотвращаем бесконечный цикл
         };
     };
@@ -74,8 +45,7 @@ function createCard(category) {
     
     // Добавляем обработчик клика для перехода на страницу категории
     card.addEventListener('click', () => {
-        const slug = createSlug(category.title);
-        window.location.href = `engineering/${slug}.html`;
+        window.location.href = category.link;
     });
     
     return card;
@@ -143,34 +113,56 @@ function handleScrollAnimation() {
 function preloadImages() {
     if (typeof categories !== 'undefined') {
         categories.forEach(category => {
-        const img = new Image();
-        img.src = category.image;
-    });
+            const img = new Image();
+            img.src = category.image;
+        });
     }
+}
+
+// Функция для загрузки категорий
+function loadCategories() {
+    const container = document.querySelector('.card-grid');
+    if (!container || !window.categories) return;
+
+    window.categories.forEach(category => {
+        const card = createCard(category);
+        container.appendChild(card);
+        loadImages(category);
+    });
 }
 
 // Инициализация страницы
 document.addEventListener('DOMContentLoaded', () => {
-    const cardGrid = document.querySelector('.card-grid');
-    
-    // Проверяем наличие данных категорий
-    if (typeof categories !== 'undefined' && Array.isArray(categories)) {
-    // Создаем и добавляем карточки на страницу
-        categories.forEach(category => {
-        const card = createCard(category);
-        cardGrid.appendChild(card);
-            loadImages(category); // Предзагружаем изображения
-        });
-    } else {
-        console.error('Categories data not found or invalid');
-        cardGrid.innerHTML = '<p class="error-message">Unable to load categories. Please try again later.</p>';
+    loadCategories();
+    window.addEventListener('scroll', handleScrollAnimation);
+});
+
+function createSlug(title) {
+    // Специальные случаи для точного соответствия именам файлов
+    const specialCases = {
+        'Energy & Power Generation': 'energy_power_generation',
+        'Aquatics & Pools': 'aquatics_pools',
+        'Buildings & Facilities': 'buildings_facilities',
+        'Food & Beverage': 'food_beverage',
+        'Metals & Mining': 'metals_mining',
+        'Oil and Gas': 'oil_and_gas',
+        'Refining & Chemicals': 'refining_chemicals',
+        'Municipal Drinking Water': 'municipal_drinking_water',
+        'Municipal Wastewater Treatment': 'municipal_wastewater_treatment',
+        'Utility Infrastructure': 'utility_infrastructure',
+        'General Industry': 'general_industry'
+    };
+
+    // Проверяем специальные случаи
+    if (specialCases[title]) {
+        return specialCases[title];
     }
 
-    // Обновляем Related Solutions если мы на странице категории
-    if (window.location.pathname.includes('/engineering/')) {
-        updateRelatedSolutions();
-    }
-});
+    // Общий случай для остальных названий
+    return title.toLowerCase()
+               .replace(/[^a-z0-9]+/g, '_')
+               .replace(/^_+|_+$/g, '');
+}
 
 function loadCategory(category) {
     const heroImage = document.querySelector('.hero-image');

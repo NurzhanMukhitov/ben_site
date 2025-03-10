@@ -45,6 +45,7 @@
     --dark-gray: #222;
     --medium-gray: #333;
     --gray-color: #f4f4f4;
+    --footer-text-color: #bbb;
     
     /* Размеры */
     --header-height: 80px;
@@ -1011,6 +1012,30 @@ body.menu-open {
         font-size: 10px;
         margin-right: 10px;
     }
+
+    .hero h1,
+    .hero-subtitle,
+    .cta-text {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    }
+
+    .main-menu.active {
+        background-color: rgba(0, 0, 0, 0.95);
+    }
+
+    .main-menu a {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        font-size: 1.1rem;
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .logo-text {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 }
 
 @media (max-width: 575px) {
@@ -1201,5 +1226,142 @@ img {
     
     .card-grid {
         margin-top: 1rem;
+    }
+}
+
+.footer p {
+    color: var(--footer-text-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Notification Styles */
+.message {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.message-error {
+    background-color: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #991b1b;
+}
+
+.message-success {
+    background-color: #f0fdf4;
+    border: 1px solid #dcfce7;
+    color: #166534;
+}
+
+.message-warning {
+    background-color: #fffbeb;
+    border: 1px solid #fef3c7;
+    color: #92400e;
+}
+
+.message-info {
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    color: #1e40af;
+}
+
+/* Form Validation Styles */
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+}
+
+.form-group.has-error label {
+    color: #dc2626;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.form-group.is-valid input,
+.form-group.is-valid textarea {
+    border-color: #059669;
+    background-color: #f0fdf4;
+}
+
+.form-group.is-valid label {
+    color: #059669;
+}
+
+/* Accessibility Improvements */
+@media (prefers-contrast: more) {
+    .message-error {
+        background-color: #fee2e2;
+        color: #7f1d1d;
+    }
+
+    .message-success {
+        background-color: #dcfce7;
+        color: #14532d;
+    }
+
+    .message-warning {
+        background-color: #fef3c7;
+        color: #7c2d12;
+    }
+
+    .message-info {
+        background-color: #dbeafe;
+        color: #1e3a8a;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .message-error {
+        background-color: #7f1d1d;
+        border-color: #991b1b;
+        color: #fee2e2;
+    }
+
+    .message-success {
+        background-color: #14532d;
+        border-color: #166534;
+        color: #dcfce7;
+    }
+
+    .message-warning {
+        background-color: #7c2d12;
+        border-color: #92400e;
+        color: #fef3c7;
+    }
+
+    .message-info {
+        background-color: #1e3a8a;
+        border-color: #1e40af;
+        color: #dbeafe;
+    }
+
+    .form-group.has-error input,
+    .form-group.has-error textarea {
+        background-color: rgba(220, 38, 38, 0.1);
+        border-color: #ef4444;
+    }
+
+    .form-group.is-valid input,
+    .form-group.is-valid textarea {
+        background-color: rgba(5, 150, 105, 0.1);
+        border-color: #10b981;
     }
 }
